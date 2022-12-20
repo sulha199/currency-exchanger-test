@@ -1,9 +1,17 @@
-import { NgModule, isDevMode } from '@angular/core'
+import { isDevMode, NgModule } from '@angular/core'
+
 import { BrowserModule } from '@angular/platform-browser'
+
+import { ServiceWorkerModule } from '@angular/service-worker'
+
+import { FIXER_API_APIKEY } from 'src/currency/consts'
+
+import * as fixer from 'fixer-api/dist/index'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { ServiceWorkerModule } from '@angular/service-worker'
+fixer.set({ accessKey: FIXER_API_APIKEY, baseUrl: 'https://api.apilayer.com/fixer' })
+
 
 @NgModule({
   declarations: [AppComponent],

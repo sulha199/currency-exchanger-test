@@ -1,0 +1,2 @@
+export const FIXER_API_APIKEY = 'VUqBdMi9EWhAZd4bIxwNTc37eoIeYV3e'
+export const FIXER_API_DEFAULT_CURRENCY = 'EUR'

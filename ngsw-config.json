@@ -26,5 +26,25 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "fixer-api-latest",
+      "urls": ["data.fixer.io/api/latest*"],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxAge": "1d",
+        "maxSize": 10
+      }
+    },
+    {
+      "name": "fixer-api-lifetime-cache",
+      "urls": ["data.fixer.io/api/2*", "data.fixer.io/api/symbols*"],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxAge": "1000d",
+        "maxSize": 100
+      }
+    }
   ]
 }
