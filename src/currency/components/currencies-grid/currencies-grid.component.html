@@ -1,0 +1,6 @@
+<div class="box box-shadow currency-grid">
+  <div class="box currency-grid__item" *ngFor="let item of topCurrenciesRates">
+    {{ 1 | currency : from : '' }} {{ from }} =
+    {{ item.rate | currency : item.currency : '' }} {{ item.currency }}
+  </div>
+</div>

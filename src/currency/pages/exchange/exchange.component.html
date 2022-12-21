@@ -1,0 +1,11 @@
+<h1>Currency Exchanger</h1>
+<ng-container *ngIf="rates$ | async as rates">
+  <app-api-state-wrapper [state]="rates">
+    <ng-container *ngIf="(rates | readState : 'success')?.response as record">
+      <app-exchange-form
+        [ratesRecord]="record"
+        [showMoreDetailButton]="true"></app-exchange-form>
+      <app-currencies-grid [ratesRecord]="record"></app-currencies-grid>
+    </ng-container>
+  </app-api-state-wrapper>
+</ng-container>

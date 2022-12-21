@@ -1,0 +1,10 @@
+.history-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #chart {
+    flex: 1;
+    height: auto !important;
+  }
+}

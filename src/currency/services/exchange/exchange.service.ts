@@ -2,28 +2,39 @@ import { Injectable } from '@angular/core'
 import { IFixerResponse } from 'fixer-api/dist/Fixer'
 import * as fixer from 'fixer-api/dist/index'
 import { BehaviorSubject } from 'rxjs'
-import { FIXER_API_DEFAULT_CURRENCY } from 'src/currency/consts'
-import { ApiState } from 'src/shared/models/api'
+import { DEFAULT_CURRENCY } from 'src/currency/consts'
+import { ApiState, FixerResponseWithMessage } from 'src/shared/models/api'
+
 
 @Injectable()
 export class ExchangeService {
-  private _latest$ = new BehaviorSubject<ApiState<IFixerResponse> | null>(null)
-  data$: Omit<typeof this._latest$, 'next'> = this._latest$
+  private _rates$ = new BehaviorSubject<ApiState<IFixerResponse> | null>(null)
+  rates$: Omit<typeof this._rates$, 'next'> = this._rates$
 
   constructor() {
-    this.loadFixerLatest({ base: FIXER_API_DEFAULT_CURRENCY })
+this.loadFixerLatest({ base: DEFAULT_CURRENCY })
+
   }
 
   async loadFixerLatest(...params: Parameters<typeof fixer.latest>) {
     // TODO: setup retry mechanism
-    const response = await fixer
+this._rates$.next({ type: 'requesting' })
+const response: FixerResponseWithMessage<IFixerResponse> | undefined = await fixer
+
       .latest(...params)
-      .catch((error) => this._latest$.next({ type: 'error', error }))
-    if (response) {
-      this._latest$.next({
-        type: 'success',
-        response,
+      .catch((error) => {
+        this._rates$.next({ type: 'error', error })
+        return undefined
       })
+    if (response) {
+      this._rates$.next(
+        response.rates
+          ? {
+              type: 'success',
+              response,
+            }
+          : { type: 'error', error: new Error(response.message) }
+      )
     }
   }
 }

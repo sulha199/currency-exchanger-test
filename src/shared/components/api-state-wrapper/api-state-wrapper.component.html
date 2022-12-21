@@ -1,7 +1,4 @@
 <ng-container *ngIf="state">
-  <ng-container *ngIf="(state | readState : 'success')?.response as record">
-    <ng-content></ng-content>
-  </ng-container>
   <ng-container *ngIf="(state | readState : 'error')?.error as error">
     <div class="box box-danger">
       <h3>Error</h3>
@@ -9,6 +6,9 @@
     </div>
   </ng-container>
   <ng-container *ngIf="state | readState : 'requesting' as requesting">
-    <h3>Loading data from API</h3>
+    <h3>Loading data from API <i class="fa-solid fa-circle-notch fa-spin"></i></h3>
+  </ng-container>
+  <ng-container *ngIf="(state | readState : 'success')?.response as record">
+    <ng-content></ng-content>
   </ng-container>
 </ng-container>

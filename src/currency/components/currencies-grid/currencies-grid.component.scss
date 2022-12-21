@@ -1,0 +1,9 @@
+.currency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+  grid-gap: var(--size-m);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+  }
+}

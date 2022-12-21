@@ -1,0 +1,64 @@
+<form [formGroup]="form">
+  <div class="box box-shadow box-info exchange-form">
+    <div class="exchange-form__row">
+      <div class="exchange-form__column exchange-form__amount exchange-form__form">
+        <label>Amount</label>
+        <input type="number" formControlName="amount" />
+        <span
+          class="box box-small box-danger"
+          *ngIf="form.controls.amount.errors | apply : getError as error"
+          >{{ error }}</span
+        >
+      </div>
+      <div class="exchange-form__column exchange-form__options">
+
+          <div class="exchange-form__options__item exchange-form__form">
+            <label>From</label>
+            <select formControlName="from">
+              <option *ngFor="let item of currencyList" [value]="item">{{ item }}</option>
+            </select>
+          </div>
+          <div class="exchange-form__options__separator">
+            <button (click)="swap()"><i class="fa fa-arrows-h fa-2x"></i></button>
+          </div>
+          <div class="exchange-form__options__item exchange-form__form">
+            <label>To</label>
+            <select formControlName="to">
+              <option *ngFor="let item of currencyList" [value]="item">{{ item }}</option>
+            </select>
+          </div>
+      </div>
+      <div class="exchange-form__column exchange-form__rate">
+        <div class="box box-small">
+          {{ 1 | currency : form.value.from ?? '' : '' }} {{ form.value.from }} =
+          {{ conversionRate | currency : form.value.to ?? '' : '' }}
+          {{ form.value.to }}
+        </div>
+      </div>
+      <div class="exchange-form__column exchange-form__converted">
+        <div class="exchange-form__row">
+          <button (click)="calculateConvertedValue()" class="btn-convert">Convert</button>
+        </div>
+        <div
+          class="exchange-form__row"
+          *ngIf="convertedValue && form.pristine && form.untouched">
+          <div class="exchange-form__column">
+            <div class="box box-shadow exchange-form__converted__result">
+              {{ convertedValue | currency : form.value.to ?? '' : '' }}
+              {{ form.value.to }}
+            </div>
+          </div>
+          <div class="exchange-form__column" *ngIf="showMoreDetailButton">
+            <button
+              routerLink="/currency/detail/{{ form.value.from }}/{{ form.value.to }}/{{
+                form.value.amount
+              }}">
+              More Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="exchange-form__row"></div>
+  </div>
+</form>
