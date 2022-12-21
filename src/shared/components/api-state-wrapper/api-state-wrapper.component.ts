@@ -10,5 +10,5 @@ import { ApiState } from 'src/shared/models/api'
 })
 export class ApiStateWrapperComponent<Type> {
   @Input() state?: ApiState<Type>
-  messageUrl = `${location.protocol}//${location.host}?${KEYNAME_FIXER_API_APIKEY}=YOUR_FIXER_API_KEY`
+  messageUrl = `${location.protocol}//${location.host}${location.pathname}?${KEYNAME_FIXER_API_APIKEY}=YOUR_FIXER_API_KEY`
 }
