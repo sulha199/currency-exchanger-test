@@ -6,7 +6,7 @@
     "start": "ng serve",
     "start:pwa": "yarn build && cd dist/currency-exchanger-test && http-server -p 8080",
     "build": "ng build",
-    "build:gh": "rimraf dist/* && ng build --base-href=https://sulha199.github.io/ && mv dist/currency-exchanger-test/* dist ",
+    "build:gh": "rimraf docs/* && ng build --base-href=https://sulha199.github.io/ --output-path=docs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --code-coverage",
     "test:no-coverage": "ng test",
