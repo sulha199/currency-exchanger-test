@@ -6,6 +6,9 @@ const paramApiKey = new URLSearchParams(window.location.search).get(
 if (paramApiKey) {
   localStorage.setItem(KEYNAME_FIXER_API_APIKEY, paramApiKey)
 }
+export const FIXER_API_BASE_URL = 'https://api.apilayer.com/fixer'
+export const FIXER_API_APIKEY_HTTP_HEADER = 'apikey'
+
 export const FIXER_API_APIKEY =
   paramApiKey ??
   localStorage.getItem(KEYNAME_FIXER_API_APIKEY) ??

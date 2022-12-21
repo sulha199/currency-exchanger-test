@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1671636375661,
+  "timestamp": 1671639872637,
   "index": "https://sulha199.github.io/currency-exchanger-test/index.html",
   "assetGroups": [
     {
@@ -14,7 +14,7 @@
         "https://sulha199.github.io/currency-exchanger-test/147.d37658c8c51f9b95.js",
         "https://sulha199.github.io/currency-exchanger-test/favicon.ico",
         "https://sulha199.github.io/currency-exchanger-test/index.html",
-        "https://sulha199.github.io/currency-exchanger-test/main.0f699e2d176c8fd5.js",
+        "https://sulha199.github.io/currency-exchanger-test/main.443aae3ebe1e62a9.js",
         "https://sulha199.github.io/currency-exchanger-test/manifest.webmanifest",
         "https://sulha199.github.io/currency-exchanger-test/polyfills.7b68e80ab7ddaa54.js",
         "https://sulha199.github.io/currency-exchanger-test/runtime.2c92e81b56e4a559.js",
@@ -83,8 +83,8 @@
     "https://sulha199.github.io/currency-exchanger-test/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://sulha199.github.io/currency-exchanger-test/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://sulha199.github.io/currency-exchanger-test/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://sulha199.github.io/currency-exchanger-test/index.html": "5bb45b7a1e38c440dce6e3a53f0295ab47deb2f1",
-    "https://sulha199.github.io/currency-exchanger-test/main.0f699e2d176c8fd5.js": "79e88b9cbb9849265986733233baca6356d1f3f3",
+    "https://sulha199.github.io/currency-exchanger-test/index.html": "905bf61ed91ef6620703885d4b5334e172eab75b",
+    "https://sulha199.github.io/currency-exchanger-test/main.443aae3ebe1e62a9.js": "aedb747bbbf91d38773b998016de9bbd22c5ccd9",
     "https://sulha199.github.io/currency-exchanger-test/manifest.webmanifest": "35bc17e2bb5181cd1b903207c783703128937153",
     "https://sulha199.github.io/currency-exchanger-test/polyfills.7b68e80ab7ddaa54.js": "e76d4be63584c0ac2165fb78cd55c968e051427d",
     "https://sulha199.github.io/currency-exchanger-test/runtime.2c92e81b56e4a559.js": "f378a2d34ec623ddec04dedbe3375efd3e6dd6e3",
