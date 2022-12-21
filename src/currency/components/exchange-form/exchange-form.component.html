@@ -11,22 +11,21 @@
         >
       </div>
       <div class="exchange-form__column exchange-form__options">
-
-          <div class="exchange-form__options__item exchange-form__form">
-            <label>From</label>
-            <select formControlName="from">
-              <option *ngFor="let item of currencyList" [value]="item">{{ item }}</option>
-            </select>
-          </div>
-          <div class="exchange-form__options__separator">
-            <button (click)="swap()"><i class="fa fa-arrows-h fa-2x"></i></button>
-          </div>
-          <div class="exchange-form__options__item exchange-form__form">
-            <label>To</label>
-            <select formControlName="to">
-              <option *ngFor="let item of currencyList" [value]="item">{{ item }}</option>
-            </select>
-          </div>
+        <div class="exchange-form__options__item exchange-form__form">
+          <label>From</label>
+          <select formControlName="from">
+            <option *ngFor="let item of currencyList" [value]="item">{{ item }}</option>
+          </select>
+        </div>
+        <div class="exchange-form__options__separator">
+          <button (click)="swap()"><i class="fa fa-arrows-h fa-2x"></i></button>
+        </div>
+        <div class="exchange-form__options__item exchange-form__form">
+          <label>To</label>
+          <select formControlName="to">
+            <option *ngFor="let item of currencyList" [value]="item">{{ item }}</option>
+          </select>
+        </div>
       </div>
       <div class="exchange-form__column exchange-form__rate">
         <div class="box box-small">
@@ -39,13 +38,20 @@
         <div class="exchange-form__row">
           <button (click)="calculateConvertedValue()" class="btn-convert">Convert</button>
         </div>
-        <div
-          class="exchange-form__row"
-          *ngIf="convertedValue && form.pristine && form.untouched">
+        <div class="exchange-form__row">
           <div class="exchange-form__column">
             <div class="box box-shadow exchange-form__converted__result">
-              {{ convertedValue | currency : form.value.to ?? '' : '' }}
-              {{ form.value.to }}
+              <ng-container
+                *ngIf="
+                  convertedValue && form.pristine && form.untouched;
+                  else emptyResult
+                "
+                >{{ convertedValue | currency : form.value.to ?? '' : '' }}
+                {{ form.value.to }}</ng-container
+              >
+              <ng-template #emptyResult
+                ><code>Click the convert button to get result</code></ng-template
+              >
             </div>
           </div>
           <div class="exchange-form__column" *ngIf="showMoreDetailButton">

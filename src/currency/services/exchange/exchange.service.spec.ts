@@ -1,6 +1,5 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing'
 
-
 import * as fixer from 'fixer-api'
 
 import { HttpClientTestingModule } from '@angular/common/http/testing'
@@ -10,10 +9,8 @@ import { IFixerResponse } from 'fixer-api/dist/Fixer'
 import { FixerResponseWithMessage } from 'src/shared/models/api'
 import { mockNovember2022 } from '../../../testing/mock.spec'
 
-
 describe('ExchangeService', () => {
-let service: ExchangeService
-
+  let service: ExchangeService
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -58,11 +55,10 @@ let service: ExchangeService
   }))
 
   it('should get the message from response and set as error', fakeAsync(() => {
-
     const message = 'some message'
     spyOn(fixer, 'latest').and.callFake(async () => {
       tick(300)
-      return { message: message} as FixerResponseWithMessage<IFixerResponse>
+      return { message: message } as FixerResponseWithMessage<IFixerResponse>
     })
     service = TestBed.inject(ExchangeService)
     expect(service).toBeTruthy()

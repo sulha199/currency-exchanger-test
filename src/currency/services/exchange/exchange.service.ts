@@ -5,21 +5,19 @@ import { BehaviorSubject } from 'rxjs'
 import { DEFAULT_CURRENCY } from 'src/currency/consts'
 import { ApiState, FixerResponseWithMessage } from 'src/shared/models/api'
 
-
 @Injectable()
 export class ExchangeService {
   private _rates$ = new BehaviorSubject<ApiState<IFixerResponse> | null>(null)
   rates$: Omit<typeof this._rates$, 'next'> = this._rates$
 
   constructor() {
-this.loadFixerLatest({ base: DEFAULT_CURRENCY })
-
+    this.loadFixerLatest({ base: DEFAULT_CURRENCY })
   }
 
   async loadFixerLatest(...params: Parameters<typeof fixer.latest>) {
     // TODO: setup retry mechanism
-this._rates$.next({ type: 'requesting' })
-const response: FixerResponseWithMessage<IFixerResponse> | undefined = await fixer
+    this._rates$.next({ type: 'requesting' })
+    const response: FixerResponseWithMessage<IFixerResponse> | undefined = await fixer
 
       .latest(...params)
       .catch((error) => {

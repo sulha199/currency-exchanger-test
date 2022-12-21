@@ -4,16 +4,9 @@ import { IFixerResponse } from 'fixer-api/dist/Fixer'
 import * as fixer from 'fixer-api/dist/index'
 import { BehaviorSubject } from 'rxjs'
 
-
-
-
-
 import { DEFAULT_CURRENCY } from 'src/currency/consts'
 import { ApiState, FixerResponseWithMessage } from 'src/shared/models/api'
 import { getEndOfMonth, HistoryData } from '../../utils'
-
-
-
 
 @Injectable()
 export class HistoryService {
@@ -34,12 +27,11 @@ export class HistoryService {
       }
     )
     if (response) {
-this._data$.next(
-  Object.keys(response).length === 0
-    ? { type: 'error', error: new Error('Failed to load history') }
-    : { type: 'success', response }
-)
-
+      this._data$.next(
+        Object.keys(response).length === 0
+          ? { type: 'error', error: new Error('Failed to load history') }
+          : { type: 'success', response }
+      )
     }
   }
 
@@ -51,19 +43,21 @@ this._data$.next(
     const year = now.getFullYear()
 
     const data: HistoryData = {}
-    await Promise.all(new Array(12).fill(null).map(async (_, index) => {
-      const endOfDate = getEndOfMonth({
-        year: month + index < 12 ? year - 1 : year,
-        month: (month + index + 1) % 12 || 12,
+    await Promise.all(
+      new Array(12).fill(null).map(async (_, index) => {
+        const endOfDate = getEndOfMonth({
+          year: month + index < 12 ? year - 1 : year,
+          month: (month + index + 1) % 12 || 12,
+        })
+        const response: FixerResponseWithMessage<IFixerResponse> = await fixer.forDate(
+          endOfDate,
+          { base: baseCurrency }
+        )
+        if (!response.message) {
+          data[endOfDate] = response
+        }
       })
-      const response: FixerResponseWithMessage<IFixerResponse> = await fixer.forDate(
-        endOfDate,
-        { base: baseCurrency }
-      )
-      if (!response.message) {
-        data[endOfDate] = response
-      }
-    }))
+    )
     return data
   }
 }

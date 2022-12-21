@@ -6,21 +6,19 @@ $size-xs: 12px;
 $size-xxs: 6px;
 $size-xxxs: 4px;
 
-
 * {
   --size-l: #{$size-l};
   --size-m: #{$size-m};
   --size-s: #{$size-s};
   --size-xs: #{$size-xs};
   --size-xxs: #{$size-xxs};
---size-xxxs: #{$size-xxxs};
-
+  --size-xxxs: #{$size-xxxs};
 
   /* Colors set */
   --color-primary: #1976d2;
   --color-primary-darker: #0986c2;
---color-info: #baddf9;
---color-info-darker: #7986cb;
+  --color-info: #baddf9;
+  --color-info-darker: #7986cb;
 
   --color-dark: #333;
   --color-light: #ddd;
@@ -29,8 +27,8 @@ $size-xxxs: 4px;
 }
 
 body {
-font-family: Roboto, 'Helvetica Neue', sans-serif;
-min-width: 320px;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  min-width: 320px;
 
   padding: 0px;
   margin: 0px;
@@ -48,19 +46,18 @@ article {
   border: 1px solid var(--color-dark);
   border-radius: var(--size-xxs);
   padding: var(--size-xs) var(--size-s);
-&.box-small {
-  border-radius: var(--size-xxxs);
-  padding: var(--size-xxs) var(--size-xs);
-}
+  &.box-small {
+    border-radius: var(--size-xxxs);
+    padding: var(--size-xxs) var(--size-xs);
+  }
 
   &.box-danger {
     background-color: var(--color-danger);
     border-color: var(--color-danger-darker);
   }
-&.box-info {
-  background-color: var(--color-info);
-}
-
+  &.box-info {
+    background-color: var(--color-info);
+  }
 }
 
 .box-shadow {
@@ -114,4 +111,3 @@ input {
   border-radius: var(--size-xxxs);
   border: 1px solid var(--color-dark);
 }
-

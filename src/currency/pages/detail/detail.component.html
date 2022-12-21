@@ -1,4 +1,6 @@
-<h1 *ngIf="from as currencyCode">{{currencyCode}}<code> - {{ symbols[currencyCode] }}</code></h1>
+<h1 *ngIf="from as currencyCode">
+  {{ currencyCode }}<code> - {{ symbols[currencyCode] }}</code>
+</h1>
 <ng-container *ngIf="rates$ | async as rates">
   <app-api-state-wrapper [state]="rates">
     <ng-container *ngIf="(rates | readState : 'success')?.response as record">

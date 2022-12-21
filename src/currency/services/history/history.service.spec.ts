@@ -1,6 +1,5 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing'
 
-
 import * as fixer from 'fixer-api'
 
 import { HttpClientTestingModule } from '@angular/common/http/testing'
@@ -10,10 +9,8 @@ import { IFixerResponse } from 'fixer-api/dist/Fixer'
 import { FixerResponseWithMessage } from 'src/shared/models/api'
 import { mockHistoryRecord } from '../../../testing/mock.spec'
 
-
 describe('HistoryService', () => {
-let service: HistoryService
-
+  let service: HistoryService
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -23,8 +20,8 @@ let service: HistoryService
   })
 
   it('should load data correctly', fakeAsync(() => {
-    jasmine.clock().mockDate(new Date('2022-12-10'));
-    const array = Object.values(mockHistoryRecord).map(res => Promise.resolve(res))
+    jasmine.clock().mockDate(new Date('2022-12-10'))
+    const array = Object.values(mockHistoryRecord).map((res) => Promise.resolve(res))
     spyOn(fixer, 'forDate').and.returnValues(...array)
     service = TestBed.inject(HistoryService)
     expect(service).toBeTruthy()
@@ -55,10 +52,9 @@ let service: HistoryService
   }))
 
   it('should get the message from response and set as error', fakeAsync(() => {
-
     spyOn(fixer, 'forDate').and.callFake(async () => {
       tick(300)
-      return { message: 'some'} as FixerResponseWithMessage<IFixerResponse>
+      return { message: 'some' } as FixerResponseWithMessage<IFixerResponse>
     })
     service = TestBed.inject(HistoryService)
     expect(service).toBeTruthy()

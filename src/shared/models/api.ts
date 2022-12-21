@@ -1,4 +1,3 @@
-
 export type ApiSuccessState<ResponseType> = {
   type: 'success'
   response: ResponseType
