@@ -9,15 +9,16 @@ import { FIXER_API_APIKEY } from 'src/currency/consts'
 import * as fixer from 'fixer-api/dist/index'
 
 import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
+import { AppComponent } from './app/app.component'
+import { SharedModule } from './shared/shared.module'
 fixer.set({ accessKey: FIXER_API_APIKEY, baseUrl: 'https://api.apilayer.com/fixer' })
-
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable

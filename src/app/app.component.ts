@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { CurrencyService } from 'src/currency/services/currency/currency.service'
+
 
 
 @Component({
@@ -10,5 +10,4 @@ import { CurrencyService } from 'src/currency/services/currency/currency.service
 export class AppComponent {
   title = 'currency-exchanger-test'
 
-  constructor(private currency: CurrencyService) {}
 }

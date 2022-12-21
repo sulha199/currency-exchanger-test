@@ -1,11 +1,21 @@
-import { HttpErrorResponse } from '@angular/common/http'
 
 export type ApiSuccessState<ResponseType> = {
   type: 'success'
   response: ResponseType
 }
 
+export type ApiErrorState = {
+  type: 'error'
+  error: Error
+}
+
+export type ApiRequestingState = {
+  type: 'requesting'
+}
+
 export type ApiState<ResponseType> =
   | ApiSuccessState<ResponseType>
-  | { type: 'requesting' }
-  | { type: 'error'; error: HttpErrorResponse | any }
+  | ApiRequestingState
+  | ApiErrorState
+
+export type FixerResponseWithMessage<Type> = Type & { message?: string }

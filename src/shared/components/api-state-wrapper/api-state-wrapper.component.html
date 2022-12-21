@@ -1,0 +1,14 @@
+<ng-container *ngIf="state">
+  <ng-container *ngIf="(state | readState : 'success')?.response as record">
+    <ng-content></ng-content>
+  </ng-container>
+  <ng-container *ngIf="(state | readState : 'error')?.error as error">
+    <div class="box box-danger">
+      <h3>Error</h3>
+      <p>{{ error.message }}</p>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="state | readState : 'requesting' as requesting">
+    <h3>Loading data from API</h3>
+  </ng-container>
+</ng-container>

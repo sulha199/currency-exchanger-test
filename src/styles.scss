@@ -1,1 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
+$size-l: 32px;
+$size-m: 20px;
+$size-s: 16px;
+$size-xs: 12px;
+$size-xxs: 6px;
+
+* {
+  --size-l: #{$size-l};
+  --size-m: #{$size-m};
+  --size-s: #{$size-s};
+  --size-xs: #{$size-xs};
+  --size-xxs: #{$size-xxs};
+
+  /* Colors set */
+  --color-primary: #1976d2;
+  --color-primary-darker: #0986c2;
+  --color-dark: #333;
+  --color-light: #ddd;
+  --color-danger: #ff8a80;
+  --color-danger-darker: #7b1515;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  color: var(--color-dark);
+}
+
+content {
+  display: block;
+  padding: var(--size-m);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.box {
+  border: 1px solid var(--color-dark);
+  border-radius: var(--size-xxs);
+  padding: var(--size-xs) var(--size-s);
+  &.box-danger {
+    background-color: var(--color-danger);
+    border-color: var(--color-danger-darker);
+  }
+}
+
+.box-shadow {
+  box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.5);
+}
+
+.button,
+button {
+  padding: $size-xxs $size-xs;
+  background-color: var(--color-primary);
+  border-radius: var(--size-xxs);
+  color: var(--color-light);
+  text-align: center;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--color-primary-darker);
+    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.button-outline {
+  background-color: none;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--color-primary-darker);
+    color: var(--color-light);
+  }
+
+  &.light {
+    color: var(--color-dark);
+    border-color: var(--color-dark);
+  }
+
+  &.dark {
+    color: var(--color-light);
+    border-color: var(--color-light);
+    &:hover {
+      box-shadow: 0px 0px 20px -5px rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
