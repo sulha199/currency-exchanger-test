@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core'
+import { KEYNAME_FIXER_API_APIKEY } from 'src/currency/consts'
+
 import { ApiState } from 'src/shared/models/api'
 
 @Component({
@@ -8,4 +10,5 @@ import { ApiState } from 'src/shared/models/api'
 })
 export class ApiStateWrapperComponent<Type> {
   @Input() state?: ApiState<Type>
+  messageUrl = `${location.protocol}//${location.host}?${KEYNAME_FIXER_API_APIKEY}=YOUR_FIXER_API_KEY`
 }

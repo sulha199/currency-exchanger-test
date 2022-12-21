@@ -1,4 +1,5 @@
-const KEYNAME_FIXER_API_APIKEY = 'FIXER_API_APIKEY'
+export const KEYNAME_FIXER_API_APIKEY = 'FIXER_API_APIKEY'
+
 const paramApiKey = new URLSearchParams(window.location.search).get(
   KEYNAME_FIXER_API_APIKEY
 )

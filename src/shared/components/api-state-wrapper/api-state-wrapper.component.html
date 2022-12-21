@@ -3,6 +3,10 @@
     <div class="box box-danger">
       <h3>Error</h3>
       <p>{{ error.message }}</p>
+      <p><b
+        >If you run out of FixerApi Quota, you can use your own apiKey by accessing url
+        <a [href]="messageUrl">{{ messageUrl }}</a></b
+      ></p>
     </div>
   </ng-container>
   <ng-container *ngIf="state | readState : 'requesting' as requesting">

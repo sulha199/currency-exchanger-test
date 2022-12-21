@@ -4,10 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start-pwa": "yarn build && cd dist/currency-exchanger-test && http-server -p 4200",
+    "start:pwa": "yarn build && cd dist/currency-exchanger-test && http-server -p 8080",
     "build": "ng build",
+    "build:gh": "ng build --base-href=https://sulha199.github.io/currency-exchanger-test/",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --code-coverage",
+    "test:no-coverage": "ng test",
     "lint": "ng lint",
     "tsc": "npx tsc -p tsconfig.app.json --noEmit "
   },
