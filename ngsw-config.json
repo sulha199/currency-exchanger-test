@@ -30,7 +30,10 @@
   "dataGroups": [
     {
       "name": "fixer-api-latest",
-      "urls": ["data.fixer.io/api/latest*", "*api.apilayer.com/fixer/latest*"],
+      "urls": [
+        "https://data.fixer.io/api/latest*",
+        "https://*api.apilayer.com/fixer/latest*"
+      ],
       "cacheConfig": {
         "strategy": "performance",
         "maxAge": "7d",
@@ -39,7 +42,7 @@
     },
     {
       "name": "fixer-api-lifetime-cache",
-      "urls": ["data.fixer.io/api/2*", "*api.apilayer.com/fixer/2*"],
+      "urls": ["https://data.fixer.io/api/2*", "https://*api.apilayer.com/fixer/2*"],
       "cacheConfig": {
         "strategy": "performance",
         "maxAge": "1000d",
