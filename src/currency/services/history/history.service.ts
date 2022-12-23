@@ -49,6 +49,7 @@ export class HistoryService {
           year: month + index < 12 ? year - 1 : year,
           month: (month + index + 1) % 12 || 12,
         })
+        // this request is cached via service worker
         const response: FixerResponseWithMessage<IFixerResponse> = await fixer.forDate(
           endOfDate,
           { base: baseCurrency }

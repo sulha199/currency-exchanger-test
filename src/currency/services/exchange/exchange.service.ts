@@ -17,6 +17,7 @@ export class ExchangeService {
   async loadFixerLatest(...params: Parameters<typeof fixer.latest>) {
     // TODO: setup retry mechanism
     this._rates$.next({ type: 'requesting' })
+    // this request is cached via service worker
     const response: FixerResponseWithMessage<IFixerResponse> | undefined = await fixer
 
       .latest(...params)
