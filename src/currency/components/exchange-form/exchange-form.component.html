@@ -13,16 +13,16 @@
       <div class="exchange-form__column exchange-form__options">
         <div class="exchange-form__options__item exchange-form__form">
           <label>From</label>
-          <select formControlName="from">
+          <select formControlName="from" [disabled]="(!!options?.disableFrom || !form.valid )">
             <option *ngFor="let item of currencyList" [value]="item">{{ item }}</option>
           </select>
         </div>
-        <div class="exchange-form__options__separator">
-          <button (click)="swap()"><i class="fa fa-arrows-h fa-2x"></i></button>
+        <div class="exchange-form__options__separator" *ngIf="!options?.disableFrom">
+          <button (click)="swap()" type="button"><i class="fa fa-arrows-h fa-2x"></i></button>
         </div>
         <div class="exchange-form__options__item exchange-form__form">
           <label>To</label>
-          <select formControlName="to">
+          <select formControlName="to" [disabled]="!form.valid">
             <option *ngFor="let item of currencyList" [value]="item">{{ item }}</option>
           </select>
         </div>
@@ -36,7 +36,7 @@
       </div>
       <div class="exchange-form__column exchange-form__converted">
         <div class="exchange-form__row">
-          <button (click)="calculateConvertedValue()" class="btn-convert">Convert</button>
+          <button (click)="calculateConvertedValue()" class="btn-convert" [disabled]="!form.valid">Convert</button>
         </div>
         <div class="exchange-form__row">
           <div class="exchange-form__column">
@@ -54,7 +54,7 @@
               >
             </div>
           </div>
-          <div class="exchange-form__column" *ngIf="showMoreDetailButton">
+          <div class="exchange-form__column" *ngIf="options?.showMoreDetailButton">
             <button
               routerLink="/currency/detail/{{ form.value.from }}/{{ form.value.to }}/{{
                 form.value.amount

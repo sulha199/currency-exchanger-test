@@ -35,6 +35,12 @@ body {
   color: var(--color-dark);
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 article {
   display: block;
   padding: var(--size-m);
@@ -64,13 +70,16 @@ article {
   box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.5);
 }
 
-.button,
-button {
+.button, button {
   padding: $size-xxs $size-xs;
-  background-color: var(--color-primary);
   border-radius: var(--size-xxs);
-  color: var(--color-light);
   text-align: center;
+}
+
+.button:not(:disabled),
+button:not(:disabled) {
+  background-color: var(--color-primary);
+  color: var(--color-light);
   transition: 0.3s;
   border: none;
   cursor: pointer;
@@ -110,4 +119,9 @@ input {
   padding: var(--size-xxs) var(--size-xs);
   border-radius: var(--size-xxxs);
   border: 1px solid var(--color-dark);
+}
+
+select[ng-reflect-is-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.7;
 }

@@ -13,7 +13,22 @@ import { IFixerResponse } from 'fixer-api/dist/Fixer'
 import { Subscription } from 'rxjs'
 import { startWith } from 'rxjs/operators'
 import { DEFAULT_CURRENCY, DEFAULT_TARGET_CURRENCY } from 'src/currency/consts'
-import { getCurrencyList, getCurrencyRate } from 'src/currency/utils'
+import { getCurrencyList, getCurrencyRate, omit } from 'src/currency/utils'
+
+type ExchangeFormOptions = {
+  showMoreDetailButton?: boolean,
+  disableFrom?: boolean
+}
+
+const amountValidator = (minValue: number) =>  [Validators.required, Validators.min(minValue)]
+const  createExchangeFormGroup = () => {
+  return new FormGroup({
+    amount: new FormControl<number>(1, amountValidator(0)),
+    from: new FormControl<string>(DEFAULT_CURRENCY, [Validators.required]),
+    to: new FormControl<string>(DEFAULT_TARGET_CURRENCY, [Validators.required]),
+  })
+}
+const amountTooLowMessage = 'Please enter a higher amount'
 
 @Component({
   selector: 'app-exchange-form',
@@ -22,18 +37,14 @@ import { getCurrencyList, getCurrencyRate } from 'src/currency/utils'
 })
 export class ExchangeFormComponent implements OnChanges, OnInit, OnDestroy {
   @Input() ratesRecord?: IFixerResponse | undefined
-  @Input() showMoreDetailButton = false
+  @Input() options?: ExchangeFormOptions
   @Input() from?: string | null
   @Input() to?: string | null
   @Input() amount?: number | null
 
   currencyList: string[] = [DEFAULT_CURRENCY]
 
-  form = new FormGroup({
-    amount: new FormControl<number>(1, [Validators.required]),
-    from: new FormControl<string>(DEFAULT_CURRENCY, [Validators.required]),
-    to: new FormControl<string>(DEFAULT_TARGET_CURRENCY, [Validators.required]),
-  })
+  form = createExchangeFormGroup()
   @Output() formChange = new EventEmitter<typeof this.form.value>()
   convertedValue?: number
   conversionRate?: number
@@ -68,14 +79,15 @@ export class ExchangeFormComponent implements OnChanges, OnInit, OnDestroy {
     const { amount, from, to } = this.form.value
     if (this.form.valid && amount != null && to && from && this.ratesRecord) {
       const rate = getCurrencyRate({ from, to }, this.ratesRecord)
-      if (rate && rate < 0.01) {
+      this.convertedValue = rate != null ? rate * amount : undefined
+
+      if (this.convertedValue && this.convertedValue < 0.01) {
         this.form.controls.amount.setErrors({
-          'Please enter a higher amount': 'amount',
+          [amountTooLowMessage]: 'amount',
         })
         this.convertedValue = undefined
         return
       }
-      this.convertedValue = rate != null ? rate * amount : undefined
       this.form.markAsUntouched()
       this.form.markAsPristine()
     }
@@ -97,6 +109,10 @@ export class ExchangeFormComponent implements OnChanges, OnInit, OnDestroy {
 
   onFormChanges() {
     this.formChange.emit(this.form.value)
+    this.form.controls.amount.setErrors(
+      this.form.controls.amount.errors ?
+      omit(this.form.controls.amount.errors, [amountTooLowMessage]) : null
+    )
     const { from, to } = this.form.value
     if (from && to && this.ratesRecord) {
       this.conversionRate = getCurrencyRate({ from, to }, this.ratesRecord)
@@ -115,3 +131,4 @@ export class ExchangeFormComponent implements OnChanges, OnInit, OnDestroy {
     )
   }
 }
+

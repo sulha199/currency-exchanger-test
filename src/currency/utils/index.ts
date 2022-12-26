@@ -78,3 +78,9 @@ export const dateToDateLabel = (date: string, showYear?: boolean) => {
   const month = dateInstance.getMonth()
   return `${MONTH_NAMES[month]}${showYear ? `-${year}` : ''}`
 }
+
+export const omit = <T extends object, K extends keyof T>(obj: T, keys: K[]): Omit<T, K> => {
+  const _ = { ...obj }
+  keys.forEach((key) => delete _[key])
+  return _
+}

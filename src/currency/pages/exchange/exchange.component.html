@@ -4,7 +4,7 @@
     <ng-container *ngIf="(rates | readState : 'success')?.response as record">
       <app-exchange-form
         [ratesRecord]="record"
-        [showMoreDetailButton]="true"></app-exchange-form>
+        [options]="{ showMoreDetailButton: true }"></app-exchange-form>
       <app-currencies-grid [ratesRecord]="record"></app-currencies-grid>
     </ng-container>
   </app-api-state-wrapper>

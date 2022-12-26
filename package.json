@@ -12,6 +12,7 @@
     "test:no-coverage": "ng test",
     "lint": "ng lint",
     "prettier": "prettier --write src",
+    "validate": "yarn lint ; yarn tsc",
     "tsc": "npx tsc -p tsconfig.app.json --noEmit "
   },
   "private": true,

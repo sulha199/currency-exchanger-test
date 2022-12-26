@@ -1,6 +1,9 @@
-<h1 *ngIf="from as currencyCode">
-  {{ currencyCode }}<code> - {{ symbols[currencyCode] }}</code>
-</h1>
+<header>
+  <h1 *ngIf="from as currencyCode">
+    {{ currencyCode }}<code> - {{ symbols[currencyCode] }}</code>
+  </h1>
+  <button [routerLink]="['/']">Back to Home</button>
+</header>
 <ng-container *ngIf="rates$ | async as rates">
   <app-api-state-wrapper [state]="rates">
     <ng-container *ngIf="(rates | readState : 'success')?.response as record">
@@ -9,6 +12,7 @@
         [to]="to"
         [from]="from"
         [amount]="amount"
+        [options]="{ disableFrom: true }">
         (formChange)="formChange($event)"></app-exchange-form>
       <ng-container *ngIf="historyRecord | async as history">
         <app-api-state-wrapper [state]="history">
