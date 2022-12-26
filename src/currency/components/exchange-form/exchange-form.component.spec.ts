@@ -95,7 +95,8 @@ describe('ExchangeFormComponent', () => {
     component.to = defaultFrom
     component.amount = amount
     component.ratesRecord = mockDecember2021
-    component.ngOnChanges({ rateRecord: true } as any)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    component.ngOnChanges({ rateRecord: {} } as any)
     tick(300)
 
     expect(component.form.value).toEqual({

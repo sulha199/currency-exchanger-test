@@ -8,6 +8,7 @@ import { mockHistoryRecord, mockNovember2022 } from './mock.spec'
 
 export const mockOmit = <T extends object, K extends keyof T>(
   _obj: T,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _keys: K[]
 ): Omit<T, K> => {
   return _obj

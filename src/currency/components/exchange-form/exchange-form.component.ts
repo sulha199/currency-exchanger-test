@@ -6,7 +6,7 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  SimpleChanges,
+  SimpleChanges
 } from '@angular/core'
 import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms'
 import { IFixerResponse } from 'fixer-api/dist/Fixer'
@@ -92,7 +92,7 @@ export class ExchangeFormComponent implements OnChanges, OnInit, OnDestroy {
   }
 
   getError(errors?: ValidationErrors | null) {
-    return errors && Object.keys(errors)[0]
+    return errors ? Object.keys(errors)[0] : null
   }
 
   onFormChanges() {

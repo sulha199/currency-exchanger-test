@@ -14,7 +14,7 @@
   <ng-container *ngIf="state | readState : 'requesting' as requesting">
     <h3>Loading data from API <i class="fa-solid fa-circle-notch fa-spin"></i></h3>
   </ng-container>
-  <ng-container *ngIf="(state | readState : 'success')?.response as record">
+  <ng-container *ngIf="(state | readState : 'success')?.response">
     <ng-content></ng-content>
   </ng-container>
 </ng-container>

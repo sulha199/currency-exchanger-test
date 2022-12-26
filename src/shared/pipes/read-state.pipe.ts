@@ -1,25 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core'
-import {
-  ApiErrorState,
-  ApiRequestingState,
-  ApiState,
-  ApiSuccessState
-} from '../models/api'
-
-type ApiStateMap<Type> = {
-  success: ApiSuccessState<Type>
-  error: ApiErrorState
-  requesting: ApiRequestingState
-}
+import { ApiState } from '../models/api'
 
 @Pipe({ name: 'readState' })
 export class ReadStatePipe implements PipeTransform {
-  transform<ResponseType, StateType extends ApiState<ResponseType>['type']>(
-    state: ApiState<ResponseType> | null,
-    type: StateType
-  ): ApiStateMap<ResponseType>[StateType] | undefined {
-    return state?.type === type
-      ? (state as ApiStateMap<ResponseType>[StateType])
-      : undefined
+  transform<
+    State extends ApiState<unknown>,
+    StateType extends State['type'],
+    Result extends  { type: StateType } & State
+  >(state: State | null, type: StateType): Result | null {
+    return state?.type === type ? (state as unknown as Result) : null
   }
 }

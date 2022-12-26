@@ -3,8 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { ApiStateWrapperComponent } from './api-state-wrapper.component'
 
 describe('ApiStateWrapperComponent', () => {
-  let component: ApiStateWrapperComponent<any>
-  let fixture: ComponentFixture<ApiStateWrapperComponent<any>>
+  let component: ApiStateWrapperComponent<unknown>
+  let fixture: ComponentFixture<ApiStateWrapperComponent<unknown>>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

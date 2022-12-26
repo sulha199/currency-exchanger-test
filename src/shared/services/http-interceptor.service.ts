@@ -16,7 +16,7 @@ import {
 
 @Injectable()
 export class CustomHttpInterceptor implements HttpInterceptor {
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return of(req).pipe(
       switchMap((request) => {
         // currently fixer api is called via fixer-api package and is using native's fetch

@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1671639872637,
+  "timestamp": 1672070653148,
   "index": "https://sulha199.github.io/currency-exchanger-test/index.html",
   "assetGroups": [
     {
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://sulha199.github.io/currency-exchanger-test/147.d37658c8c51f9b95.js",
+        "https://sulha199.github.io/currency-exchanger-test/147.d5c34d75fb6a2ebc.js",
         "https://sulha199.github.io/currency-exchanger-test/favicon.ico",
         "https://sulha199.github.io/currency-exchanger-test/index.html",
         "https://sulha199.github.io/currency-exchanger-test/main.443aae3ebe1e62a9.js",
         "https://sulha199.github.io/currency-exchanger-test/manifest.webmanifest",
         "https://sulha199.github.io/currency-exchanger-test/polyfills.7b68e80ab7ddaa54.js",
-        "https://sulha199.github.io/currency-exchanger-test/runtime.2c92e81b56e4a559.js",
+        "https://sulha199.github.io/currency-exchanger-test/runtime.47a1ee9ea5fe2a3d.js",
         "https://sulha199.github.io/currency-exchanger-test/styles.436a6750ee49298d.css"
       ],
       "patterns": []
@@ -73,7 +73,7 @@
     }
   ],
   "hashTable": {
-    "https://sulha199.github.io/currency-exchanger-test/147.d37658c8c51f9b95.js": "44dad722dabed14d50ce275e5c2b23d09c60c9e8",
+    "https://sulha199.github.io/currency-exchanger-test/147.d5c34d75fb6a2ebc.js": "6374200d9584f92a908493e174070e92561afb3b",
     "https://sulha199.github.io/currency-exchanger-test/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "https://sulha199.github.io/currency-exchanger-test/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "https://sulha199.github.io/currency-exchanger-test/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -83,11 +83,11 @@
     "https://sulha199.github.io/currency-exchanger-test/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://sulha199.github.io/currency-exchanger-test/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://sulha199.github.io/currency-exchanger-test/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://sulha199.github.io/currency-exchanger-test/index.html": "905bf61ed91ef6620703885d4b5334e172eab75b",
+    "https://sulha199.github.io/currency-exchanger-test/index.html": "6f526c00f24b404a34b66bea77682ccf7a9993b2",
     "https://sulha199.github.io/currency-exchanger-test/main.443aae3ebe1e62a9.js": "aedb747bbbf91d38773b998016de9bbd22c5ccd9",
     "https://sulha199.github.io/currency-exchanger-test/manifest.webmanifest": "35bc17e2bb5181cd1b903207c783703128937153",
     "https://sulha199.github.io/currency-exchanger-test/polyfills.7b68e80ab7ddaa54.js": "e76d4be63584c0ac2165fb78cd55c968e051427d",
-    "https://sulha199.github.io/currency-exchanger-test/runtime.2c92e81b56e4a559.js": "f378a2d34ec623ddec04dedbe3375efd3e6dd6e3",
+    "https://sulha199.github.io/currency-exchanger-test/runtime.47a1ee9ea5fe2a3d.js": "e0593bb3f14de0c78617264c16ef77bc4ecc134d",
     "https://sulha199.github.io/currency-exchanger-test/styles.436a6750ee49298d.css": "4700cad27a71cd1615e7847b4f88f2e1259fd2c3"
   },
   "navigationUrls": [
