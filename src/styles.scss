@@ -121,7 +121,7 @@ input {
   border: 1px solid var(--color-dark);
 }
 
-select[ng-reflect-is-disabled="true"] {
+*.disabled {
   pointer-events: none;
   opacity: 0.7;
 }

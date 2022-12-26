@@ -23,7 +23,7 @@ type ExchangeFormOptions = {
 const amountValidator = (minValue: number) =>  [Validators.required, Validators.min(minValue)]
 const  createExchangeFormGroup = () => {
   return new FormGroup({
-    amount: new FormControl<number>(1, amountValidator(0)),
+    amount: new FormControl<number>(1, amountValidator(0.01)),
     from: new FormControl<string>(DEFAULT_CURRENCY, [Validators.required]),
     to: new FormControl<string>(DEFAULT_TARGET_CURRENCY, [Validators.required]),
   })

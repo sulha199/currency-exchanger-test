@@ -13,7 +13,7 @@
       <div class="exchange-form__column exchange-form__options">
         <div class="exchange-form__options__item exchange-form__form">
           <label>From</label>
-          <select formControlName="from" [disabled]="(!!options?.disableFrom || !form.valid )">
+          <select [formControl]="form.controls.from" [class.disabled]="(!!options?.disableFrom || form.invalid )">
             <option *ngFor="let item of currencyList" [value]="item">{{ item }}</option>
           </select>
         </div>
@@ -22,7 +22,7 @@
         </div>
         <div class="exchange-form__options__item exchange-form__form">
           <label>To</label>
-          <select formControlName="to" [disabled]="!form.valid">
+          <select [formControl]="form.controls.to"  [class.disabled]="form.invalid">
             <option *ngFor="let item of currencyList" [value]="item">{{ item }}</option>
           </select>
         </div>
@@ -36,7 +36,7 @@
       </div>
       <div class="exchange-form__column exchange-form__converted">
         <div class="exchange-form__row">
-          <button (click)="calculateConvertedValue()" class="btn-convert" [disabled]="!form.valid">Convert</button>
+          <button (click)="calculateConvertedValue()" class="btn-convert" [disabled]="form.invalid">Convert</button>
         </div>
         <div class="exchange-form__row">
           <div class="exchange-form__column">
